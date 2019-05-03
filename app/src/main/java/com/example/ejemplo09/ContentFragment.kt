@@ -22,14 +22,24 @@ private const val ARG_CONTENT = "CONTENT"
  *
  */
 class ContentFragment : Fragment() {
-    private var content: String? = null
+    private var content: Int? = null
 
     private var listener: OnFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            content = it.getString(ARG_CONTENT)
+            content = it.getString(ARG_CONTENT).toInt()
+
+            if(content==1){
+                content= R.drawable.goku
+            }
+            if (content==2){
+                content= R.drawable.jiren
+            }
+            if(content==3){
+                content= R.drawable.vs
+            }
         }
     }
 
@@ -37,7 +47,7 @@ class ContentFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_content, container, false).apply {
-            tv_content.text =  content
+            tv_content.setImageResource(content?:0)
         }
     }
 

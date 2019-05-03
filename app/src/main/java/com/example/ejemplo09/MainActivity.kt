@@ -9,13 +9,13 @@ class MainActivity : AppCompatActivity(), FakeBarFragment.OnSelectOption {
     override fun onAction(id: Int) {
         var content = when (id) {
             1 -> {
-                "Hola"
+                "1"
             }
             2 -> {
-                "Wiii"
+                "2"
             }
             3 -> {
-                "Bye"
+                "3"
             }
             else -> {
                 "Fuck!"
